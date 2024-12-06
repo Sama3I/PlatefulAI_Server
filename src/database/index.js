@@ -1,3 +1,3 @@
 module.exports = {
-    // databaseConnection: require('./connection')
+    CategoryRepository: require("./repo/category-repo")
 }

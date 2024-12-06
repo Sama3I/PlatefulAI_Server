@@ -3,4 +3,5 @@ module.exports = {
     StepModel : require('./Step'),
     UserModel : require('./User'),
     InstructionModel : require('./Instruction'),
+    CategoryModel : require('./Category'),
 }

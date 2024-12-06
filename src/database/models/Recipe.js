@@ -27,7 +27,7 @@ const RecipeModel = new Schema({
         {type: String}
     ],
     instructions: [
-        {type: Schema.Types.ObjectId, ref: 'instruction', require: true},
+        {type: Schema.Types.ObjectId, ref: 'instruction'},
     ],
 });
 
