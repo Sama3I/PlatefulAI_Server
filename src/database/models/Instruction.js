@@ -3,7 +3,12 @@ const Schema = mongoose.Schema
 
 const InstructionModel = new Schema({
     steps: [
-        {type: Schema.Types.ObjectId, ref: 'step', require: true}
+        {
+            step: {type: String, require: true},
+            collaborators: [
+                {type: Schema.Types.ObjectId, ref: 'user'}
+            ]
+        }
     ],
     image: String,
     timeTaken: Number,

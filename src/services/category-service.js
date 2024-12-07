@@ -16,6 +16,15 @@ class CategoryService{
             throw new APIError('Data Not found')
         }
     }
+
+    async GetCategories(){
+        try{
+            const categoryResult = await this.repository.GetCategories()
+            return FormateData(categoryResult);
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
 }
 
 module.exports = CategoryService;

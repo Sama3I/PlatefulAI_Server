@@ -27,6 +27,19 @@ class CategoryController{
             next(err);
         }
     }
+
+    async GetCategories(req, res, next){
+        try {
+            const { data } = await service.GetCategories()
+    
+            // Return all the results
+            return res.json(data);
+    
+        } catch (err) {
+            console.log(err);
+            next(err);
+        }
+    }
 }
 
 module.exports = CategoryController

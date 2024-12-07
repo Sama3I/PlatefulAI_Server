@@ -12,11 +12,23 @@ class CategoryRepository{
             }
             return null;
         }catch(e){
-        throw new APIError(
-            "API Error",
-            STATUS_CODES.INTERNAL_ERROR,
-            "Unable to Create Customer"
-        );
+            throw new APIError(
+                "API Error",
+                STATUS_CODES.INTERNAL_ERROR,
+                "Unable to Create Customer"
+            );
+        }
+    }
+
+    async GetCategories(){
+        try{
+            return await CategoryModel.find();
+        }catch(e){
+            throw new APIError(
+                "API Error",
+                STATUS_CODES.INTERNAL_ERROR,
+                "Unable to Create Customer"
+            );
         }
     }
 }

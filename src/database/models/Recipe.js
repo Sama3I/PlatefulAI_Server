@@ -14,7 +14,7 @@ const RecipeModel = new Schema({
     ingredients: [
         {
             name: {type: String, require: true},
-            use: {type: String, require: true},
+            quantity: {type: String, require: true},
         }
     ],
     tools: [
