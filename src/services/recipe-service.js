@@ -15,6 +15,17 @@ class RecipeService{
             throw new APIError('Data Not found')
         }
     }
+
+    async GetRecipes(){
+        try{
+            const recipes = await this.repository.Recipes();
+            
+            return FormateData(recipes)
+
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
 }
 
 module.exports = RecipeService

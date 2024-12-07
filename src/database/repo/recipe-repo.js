@@ -69,6 +69,21 @@ class RecipeRepository{
             );
         }
     }
+
+    async Recipes(){
+        try {
+            return await RecipeModel.find().populate("instructions").populate({
+                path: "category",
+                select: "name"
+            });
+        } catch (err) {
+        throw new APIError(
+            "API Error",
+            STATUS_CODES.INTERNAL_ERROR,
+            "Unable to Get Products"
+        );
+        }
+    }
 }
 
 module.exports = RecipeRepository

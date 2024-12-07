@@ -19,7 +19,6 @@ passport.use(
 }, 
 async function(request, accessToken, refreshToken, profile, done) { 
             try {
-                console.log(profile)
                 const existingUser = await UserModel.findOne({ email: profile.emails[0].value });
                 if (existingUser) {
                     return done(null, existingUser);

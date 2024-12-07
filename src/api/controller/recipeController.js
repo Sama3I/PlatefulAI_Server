@@ -41,6 +41,15 @@ class RecipeController{
             next(err);
         }
     }
+
+    async GetRecipes(req, res, next){
+        try {
+            const { data} = await service.GetRecipes();        
+            return res.status(200).json(data);
+        } catch (error) {
+            next(err)
+        }
+    }
 }
 
 module.exports = RecipeController
