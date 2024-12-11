@@ -11,6 +11,7 @@ const RecipeModel = new Schema({
     serving: {type: Number, require: true,},
     time: {type: Number, require: true,},
     calories: {type: Number, require: true,},
+    image: String,
     ingredients: [
         {
             name: {type: String, require: true},
@@ -31,4 +32,6 @@ const RecipeModel = new Schema({
     ],
 });
 
-module.exports = mongoose.model('recipe', RecipeModel)
+const Recipe = mongoose.model('recipe', RecipeModel)
+
+module.exports = Recipe

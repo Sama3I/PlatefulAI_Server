@@ -12,7 +12,7 @@ class RecipeController{
                 recipes.map(async (recipe) => {
                     const {
                         name,
-                        userId,
+                        user,
                         category,
                         description,
                         likes,
@@ -20,6 +20,7 @@ class RecipeController{
                         serving,
                         time,
                         calories,
+                        image,
                         ingredients,
                         tools,
                         tags,
@@ -27,7 +28,7 @@ class RecipeController{
 
                     // Call the service to create a recipe
                     const { data } = await service.CreateRecipe({ 
-                        name, userId, category, description, likes, saves, serving, time, calories, ingredients, tools, tags, instructions });
+                        name, user, category, description, likes, saves, serving, time, calories, image, ingredients, tools, tags, instructions });
 
                     return data;
                 })
