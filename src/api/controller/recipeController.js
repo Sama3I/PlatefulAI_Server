@@ -47,7 +47,42 @@ class RecipeController{
         try {
             const { data} = await service.GetRecipes();        
             return res.status(200).json(data);
-        } catch (error) {
+        } catch (err) {
+            next(err)
+        }
+    }
+
+    async Like(req, res, next){
+        try{
+            const { id } = req.params; // Recipe ID
+            const userId = req.user._id; // User ID from authenticated user
+            const {data} = await service.LikeRecipe({id, userId})
+
+            return res.json(data);
+        }catch(err){
+            next(err)
+        }
+    }
+
+    async Save(req, res, next){
+        try{
+            const { id } = req.params; // Recipe ID
+            const userId = req.user._id; // User ID from authenticated user
+            const {data} = await service.SaveRecipe({id, userId})
+
+            return res.json(data);
+        }catch(err){
+            next(err)
+        }
+    }
+
+    async UpdateRecipeTags(req, res, next){
+        try {
+            const { id } = req.params;
+            const { time, serving, calories } = req.body
+            const { data } = await service.UpdateRecipeTags({id, time, serving, calories})
+            return res.status(200).json(data);
+        } catch (err) {
             next(err)
         }
     }

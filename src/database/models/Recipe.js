@@ -7,6 +7,12 @@ const RecipeModel = new Schema({
     category: {type: Schema.Types.ObjectId, ref: 'category', require: true,},
     description: {type: String, require: true,},
     likes: {type: Number, require: true},
+    likedBy: [
+        {type: Schema.Types.ObjectId, ref: 'user'},
+    ],
+    savedBy: [
+        {type: Schema.Types.ObjectId, ref: 'user'},
+    ],
     saves: {type: Number, require: true,},
     serving: {type: Number, require: true,},
     time: {type: Number, require: true,},

@@ -25,7 +25,7 @@ class UserRepository{
                             path: 'instructions', 
                             populate: { path: 'steps' },
                         },
-                        { path: 'user', select: 'username' },
+                        { path: 'user', select: ['username', 'email'] },
                     ], 
                 })
                 .populate({
@@ -36,7 +36,7 @@ class UserRepository{
                             path: 'instructions', 
                             populate: { path: 'steps' },
                         },
-                        { path: 'user', select: 'username' },
+                        { path: 'user', select: ['username', 'email'] },
                     ], 
                 });
             return populatedUser

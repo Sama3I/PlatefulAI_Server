@@ -26,6 +26,33 @@ class RecipeService{
             throw new APIError('Data Not found')
         }
     }
+
+    async LikeRecipe(inputs){
+        try{
+            const result = await this.repository.likeRecipe(inputs);
+            return FormateData(result)
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
+
+    async SaveRecipe(inputs){
+        try{
+            const result = await this.repository.saveRecipe(inputs);
+            return FormateData(result)
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
+
+    async UpdateRecipeTags(inputs){
+        try{
+            const result = await this.repository.UpdateRecipeTags(inputs);
+            return FormateData(result)
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
 }
 
 module.exports = RecipeService
